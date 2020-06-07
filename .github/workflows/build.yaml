@@ -17,6 +17,17 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
+      - name: Install chezscheme dependencies on macOS
+        if: matrix.os == 'macos-latest'
+        run: |
+          brew install ossp-uuid # uuid headers
+
+      - name: Install chezscheme dependencies on Ubuntu
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y uuid-dev libncurses-dev
+
       - name: asdf setup
         uses: asdf-vm/actions/setup@v1.0.0
 
