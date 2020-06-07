@@ -15,6 +15,12 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
+        include:
+          - os: ubuntu-latest
+            scheme: scheme
+          - os: macos-latest
+            scheme: chez
+
     runs-on: ${{ matrix.os }}
     steps:
       - name: Install chezscheme dependencies on macOS
@@ -34,4 +40,4 @@ jobs:
           command: idris2 --help
         env:
           GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SCHEME: ${{ matrix.os == 'macos-latest' && "chez" || "scheme" }}
+          SCHEME: ${{ matrix.scheme }}

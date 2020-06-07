@@ -17,6 +17,7 @@
 # Dependencies
 
 - A working `scheme` compiler. See [asdf-chezscheme](https://github.com/asdf-community/asdf-chezscheme)
+- set env `SCHEME` to the chez scheme executable. Defaults to `scheme`.
 - set env `ASDF_IDRIS2_BOOTSTRAP_OPTS` if you need a custom bootstrap process (eg, `bootstrap-rkt`)
 - `bash`, `curl`, `tar`, generic POSIX build utilities.
 
