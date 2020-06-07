@@ -34,7 +34,7 @@ download_release() {
   version="$1"
   filename="$2"
 
-  url="$GH_REPO/releases/download/v${version}/csv${version}.tar.gz"
+  url="$GH_REPO/archive/v${version}.tar.gz"
 
   echo "* Downloading idris2 release $version..."
   curl "${curl_opt[@]}" --output "$filename" -C - "$url" || fail "Could not download $url"
