@@ -58,7 +58,7 @@ install_version() {
     (
       cd "$install_path/build"
       if test -z "${ASDF_IDRIS2_BOOTSTRAP_OPTS[@]}"; then
-        make bootstrap SCHEME=scheme PREFIX="${install_path}"
+        make bootstrap SCHEME="${SCHEME:-scheme}" PREFIX="${install_path}"
       else
         make "${ASDF_IDRIS2_BOOTSTRAP_OPTS[@]}" PREFIX="${install_path}"
       fi
