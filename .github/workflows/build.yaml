@@ -20,22 +20,13 @@ jobs:
       - name: Install chezscheme dependencies on macOS
         if: matrix.os == 'macos-latest'
         run: |
-          brew install ossp-uuid # uuid headers
+          brew install chezscheme
 
       - name: Install chezscheme dependencies on Ubuntu
         if: matrix.os == 'ubuntu-latest'
         run: |
           sudo apt-get update
-          sudo apt-get install -y uuid-dev libncurses-dev
-
-      - name: asdf setup
-        uses: asdf-vm/actions/setup@v1.0.0
-
-      - name: asdf chezscheme install
-        run: |
-          asdf plugin-add chezscheme https://github.com/asdf-community/asdf-chezscheme.git
-          asdf install chezscheme latest
-          asdf local chezscheme latest
+          sudo apt-get install -y chezscheme
 
       - name: asdf_plugin_test
         uses: asdf-vm/actions/plugin-test@v1.0.0
