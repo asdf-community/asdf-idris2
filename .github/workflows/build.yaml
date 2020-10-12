@@ -36,7 +36,7 @@ jobs:
           sudo apt-get install -y chezscheme
 
       - name: asdf_plugin_test
-        uses: asdf-vm/actions/plugin-test@v1.0.0
+        uses: asdf-vm/actions/plugin-test@v1.0.1
         with:
           command: idris2 --help
         env:
