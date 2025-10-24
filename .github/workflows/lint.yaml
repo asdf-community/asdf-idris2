@@ -20,22 +20,17 @@ jobs:
         uses: Homebrew/actions/setup-homebrew@master
       - name: Install ShellCheck
         run: brew install shellcheck
-      - name: Check ShellCheck version
-        run: shellcheck --version
       - name: Shellcheck
         run: shellcheck -x bin/* -P lib/
 
   shfmt:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
-
       - name: Install shfmt
         run: brew install shfmt
-
       - name: Run shfmt
         run: shfmt -d -i 2 -ci .
